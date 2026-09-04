@@ -1,0 +1,12 @@
+# Startet das Lock-Mockup als Container im Labor. Die Default-Zugangsdaten
+# (admin/admin) sind Absicht — das ist die Lektion.
+services:
+  lock:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      LOCK_DEVICE_NAME: SmartLock-IoT
+      LOCK_SESSION_SECRET: change-me-insecure-lab-secret
+      # UNLOCK_HOOK_URL: http://relay.local/unlock
+    restart: unless-stopped

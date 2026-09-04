@@ -1,0 +1,37 @@
+{
+  "name": "lock-mockup",
+  "version": "1.0.0",
+  "description": "Absichtlich unsicheres IoT-Tuerschloss mit Web-Oberflaeche fuer das Cyber Security Lab (Tag 1: Escape the Cyber Security Lab).",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": "24"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "iot",
+    "lock",
+    "cyber-security-lab",
+    "fastify",
+    "escape-room",
+    "default-credentials"
+  ],
+  "author": "Christoph Stadlbauer",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/formbody": "^9.0.0",
+    "@fastify/static": "^10.1.3",
+    "fastify": "^5.12.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "globals": "^17.12.0"
+  }
+}
