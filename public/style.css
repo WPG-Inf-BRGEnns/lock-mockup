@@ -1,0 +1,128 @@
+/* Schlichtes "Geraete-Admin-Panel" im Stil eines billigen IoT-Geraets. */
+:root {
+  --bg: #eceff1;
+  --panel: #ffffff;
+  --ink: #263238;
+  --muted: #78909c;
+  --line: #cfd8dc;
+  --brand: #00695c;
+  --brand-dark: #004d40;
+  --danger: #c62828;
+  --ok: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.device {
+  width: 100%;
+  max-width: 360px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(38, 50, 56, 0.12);
+  overflow: hidden;
+}
+
+.device__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--brand);
+  color: #fff;
+}
+
+.device__logo { font-size: 28px; line-height: 1; }
+.device__name { font-weight: 700; letter-spacing: 0.3px; }
+.device__fw { font-size: 12px; opacity: 0.8; }
+
+.card { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.card__title { margin: 0; font-size: 18px; }
+
+label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+
+input {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--ink);
+}
+input:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+
+.btn {
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button[type="submit"]:not(.btn) {
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+}
+button[type="submit"]:not(.btn):hover { background: var(--brand-dark); }
+
+.btn--unlock { background: var(--brand); color: #fff; width: 100%; }
+.btn--unlock:hover { background: var(--brand-dark); }
+.btn--lock { background: #eceff1; color: var(--ink); border: 1px solid var(--line); width: 100%; }
+.btn--ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); width: 100%; }
+
+.status { margin: 0; font-size: 14px; color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.badge--locked { background: #ffebee; color: var(--danger); }
+.badge--open { background: #e8f5e9; color: var(--ok); }
+
+.alert {
+  margin: 0;
+  padding: 10px 12px;
+  background: #ffebee;
+  color: var(--danger);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.escape {
+  margin: 0;
+  padding: 12px;
+  background: #e8f5e9;
+  color: var(--ok);
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.logout { margin-top: 4px; }
+
+.device__foot {
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
