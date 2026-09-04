@@ -15,6 +15,8 @@ Node.js 24, ESM, Fastify. Keine Datenbank (Zustand im Speicher).
 
 ## Befehle
 
+Zuerst `npm install` ausfuehren — `node_modules` ist bewusst nicht im Repo, `npm test`/`npm run lint` schlagen sonst mit `ERR_MODULE_NOT_FOUND` fehl.
+
 - `npm install` — Abhaengigkeiten
 - `npm test` — Tests (`node --test`)
 - `npm run lint` — ESLint
