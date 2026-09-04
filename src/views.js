@@ -34,9 +34,15 @@ ${body}
 </html>`;
 }
 
+// "--" entschaerfen, damit ungewoehnliche Zugangsdaten den HTML-Kommentar
+// nicht vorzeitig schliessen.
+const commentSafe = (value) => String(value).replace(/--+/g, '-');
+
 export function loginPage(config, { error } = {}) {
+  // Der Hinweis nennt die tatsaechlich konfigurierten Zugangsdaten, damit er
+  // nach einer Passwortaenderung (LOCK_USER/LOCK_PASSWORD) weiterhin stimmt.
   const hint = config.hint
-    ? '\n<!-- TODO: Standard-Zugangsdaten (admin/admin) vor Auslieferung aendern! -->'
+    ? `\n<!-- TODO: Standard-Zugangsdaten (${commentSafe(config.user)}/${commentSafe(config.password)}) vor Auslieferung aendern! -->`
     : '';
   const body = `  <form class="card" method="post" action="/login" autocomplete="off">
     <h1 class="card__title">Anmeldung</h1>
