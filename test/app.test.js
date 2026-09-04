@@ -43,6 +43,14 @@ test('LOCK_HINT=false entfernt den Hinweis aus dem Quelltext', async () => {
   await app.close();
 });
 
+test('Der View-Source-Hinweis nennt die konfigurierten Zugangsdaten', async () => {
+  const app = await buildApp(baseConfig({ user: 'root', password: 'sesam' }));
+  const res = await app.inject({ method: 'GET', url: '/login' });
+  assert.match(res.body, /root\/sesam/);
+  assert.doesNotMatch(res.body, /admin\/admin/);
+  await app.close();
+});
+
 test('POST /login mit falschen Daten: 401, kein Cookie, Fehlermeldung', async () => {
   const app = await buildApp(baseConfig());
   const { res, cookie } = await login(app, { password: 'falsch' });
